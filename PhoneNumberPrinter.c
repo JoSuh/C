@@ -29,18 +29,23 @@ int main( void ) {
 	//need to specify type of void
 
 	char phoneNumber[100];
-	//C doesn't have a String, so to hold the input values, create an array of chars to hold the 'string'
+	//C doesn't have a String, so, to hold the input values
+	//create an array of chars to hold the 'string'
 	
 
 	int quit = 0; //Since C doesn't have booleans, set false to 0
 
+
+
 	theProgram: while (quit==00){
+				
+
 		printf("Enter phone number, or 0 to exit\n");
 
 		//scanf: scans the input according to the format provided
-		scanf("%s", phoneNumber);
+		scanf("%[^\n]%*c", phoneNumber);
+		//need to check for newline characters so that the scanf does not eat it away.
 
-		
 		//check for correct length
 		if (strlen(phoneNumber) != 7){
 			//if invalid length, check if user wants to quit
