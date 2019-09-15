@@ -1,4 +1,4 @@
-/* PROGRAM:  PhoneNumberPrinter.c 
+/* PROGRAM:  Lab2.c 
    AUTHOR:   Jo Suh
    DATE:     09/15/19
    TOPIC:    Accept correct input of phone number and formats them
@@ -34,7 +34,7 @@ int main( void ) {
 
 	int quit = 0; //Since C doesn't have booleans, set false to 0
 
-	while (quit==00){
+	theProgram: while (quit==00){
 		printf("Enter phone number, or 0 to exit\n");
 
 		//scanf: scans the input according to the format provided
@@ -50,14 +50,14 @@ int main( void ) {
 				break;
 			}
 			printf("The number entered is not 7-digits long\n");
-			continue;
+			goto theProgram;
 		}
 	
 		//check if every char is a number
 		for (int i=0; i<7; i++){
 			if (!isdigit(phoneNumber[i])){
 				printf("Invalid phone number\n");
-				continue;
+				goto theProgram;
 			}
 		}
 		
@@ -66,7 +66,7 @@ int main( void ) {
 			//subtract  nothing to use the value as an integer
 			//cannot be 0, or 1
 			printf("Invalid phone number\n");
-			continue;
+			goto theProgram;
 		}
 
 		//If make it to here, then the number is correctly formatted
